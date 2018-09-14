@@ -93,6 +93,20 @@ function generalTests() {
 }
 
 Suites.push({
+  name: 'Clearwater',
+  url: 'todomvc/clearwater/index.html',
+  version: '1.0.0.rc1',
+  prepare: function (runner, contentWindow, contentDocument) {
+        return runner.waitForElement('#new-todo').then(function (element) {
+            element.focus();
+            return element;
+        });
+    },
+  tests: generalTests()
+});
+
+
+Suites.push({
   name: 'Backbone',
   url: 'todomvc/backbone/index.html',
   version: '1.1.2',
